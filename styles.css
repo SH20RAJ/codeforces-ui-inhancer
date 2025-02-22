@@ -1,0 +1,245 @@
+/* Google-like Theme Variables */
+:root {
+  /* Google Colors */
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
+  
+  /* UI Colors */
+  --background-color: #ffffff;
+  --surface-color: #f8f9fa;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --border-color: #dadce0;
+  --link-color: #1a73e8;
+  --hover-bg: #f1f3f4;
+  
+  /* Typography */
+  --font-family: 'Google Sans', 'Roboto', -apple-system, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+  --shadow-md: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--text-primary) !important;
+  background-color: var(--background-color) !important;
+}
+
+/* Header */
+#header {
+  background: var(--background-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: var(--spacing-md) var(--spacing-xl) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 64px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+/* Logo */
+.logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--spacing-sm) !important;
+  font-size: 22px !important;
+  color: var(--text-primary) !important;
+  text-decoration: none !important;
+  font-weight: 400 !important;
+}
+
+/* Search Bar */
+.search-box {
+  max-width: 720px !important;
+  width: 100% !important;
+  margin: 0 var(--spacing-xl) !important;
+  position: relative !important;
+}
+
+.search-input {
+  width: 100% !important;
+  height: 48px !important;
+  padding: 0 var(--spacing-xl) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 24px !important;
+  font-size: 16px !important;
+  color: var(--text-primary) !important;
+  background: var(--surface-color) !important;
+  transition: background 0.2s, box-shadow 0.2s !important;
+}
+
+.search-input:hover {
+  background: var(--background-color) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.search-input:focus {
+  outline: none !important;
+  background: var(--background-color) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Navigation */
+.menu-list {
+  display: flex !important;
+  gap: var(--spacing-md) !important;
+  align-items: center !important;
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.menu-list li a {
+  color: var(--text-primary) !important;
+  text-decoration: none !important;
+  padding: var(--spacing-sm) var(--spacing-md) !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  transition: background 0.2s !important;
+}
+
+.menu-list li a:hover {
+  background: var(--hover-bg) !important;
+}
+
+/* Problem List */
+.problems {
+  max-width: 1200px !important;
+  margin: var(--spacing-xl) auto !important;
+  background: var(--background-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.problems th {
+  background: var(--surface-color) !important;
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  padding: var(--spacing-md) !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.problems td {
+  padding: var(--spacing-md) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.problems tr:hover {
+  background: var(--surface-color) !important;
+}
+
+/* Problem Title */
+.problem-title {
+  color: var(--link-color) !important;
+  font-size: 16px !important;
+  text-decoration: none !important;
+}
+
+.problem-title:hover {
+  text-decoration: underline !important;
+}
+
+/* Difficulty Tags */
+.difficulty {
+  display: inline-block !important;
+  padding: 4px 12px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: white !important;
+}
+
+/* Buttons */
+.button {
+  background: var(--link-color) !important;
+  color: white !important;
+  padding: 8px 24px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s, box-shadow 0.2s !important;
+}
+
+.button:hover {
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* Problem Statement */
+.problem-statement {
+  max-width: 800px !important;
+  margin: var(--spacing-xl) auto !important;
+  padding: var(--spacing-xl) !important;
+  background: var(--background-color) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.problem-statement h1 {
+  font-size: 24px !important;
+  color: var(--text-primary) !important;
+  margin-bottom: var(--spacing-lg) !important;
+}
+
+/* Code Editor */
+.code-editor {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  padding: var(--spacing-md) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  background: var(--surface-color) !important;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --background-color: #202124;
+  --surface-color: #292a2d;
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --border-color: #3c4043;
+  --link-color: #8ab4f8;
+  --hover-bg: #28292c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-box {
+    max-width: 100% !important;
+    margin: var(--spacing-md) !important;
+  }
+  
+  .menu-list {
+    display: none !important;
+  }
+  
+  .problems {
+    margin: var(--spacing-md) !important;
+    font-size: 14px !important;
+  }
+} 
