@@ -245,11 +245,26 @@ function debounce(func, wait) {
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 
-// Handle dynamic content
+// Remove the first observer and replace with this one
 const observer = new MutationObserver((mutations) => {
-    mutations.forEach(() => {
-        enhanceUI();
+    // Check if mutations are caused by our own changes
+    const shouldProcess = mutations.some(mutation => {
+        return Array.from(mutation.addedNodes).some(node => {
+            return node.nodeType === 1 && !node.classList.contains('cf-enhanced');
+        });
     });
+
+    if (shouldProcess) {
+        mutations.forEach(mutation => {
+            Array.from(mutation.addedNodes)
+                .filter(node => node.nodeType === 1 && !node.classList.contains('cf-enhanced'))
+                .forEach(node => {
+                    enhanceUI();
+                    // Mark as enhanced
+                    node.classList.add('cf-enhanced');
+                });
+        });
+    }
 });
 
 observer.observe(document.documentElement, {
@@ -257,7 +272,7 @@ observer.observe(document.documentElement, {
     subtree: true
 });
 
-// Inject styles immediately
+// Replace the IIFE with this updated version
 (function() {
     // Create and inject our custom styles
     const style = document.createElement('style');
@@ -397,27 +412,26 @@ observer.observe(document.documentElement, {
         }
     `;
     
-    // Inject styles as early as possible
     document.documentElement.appendChild(style);
 
     // Function to apply modern classes
     function modernizeUI() {
-        // Add modern classes to elements
-        document.querySelectorAll('.roundbox').forEach(box => {
-            box.classList.add('modern-roundbox');
+        // Add modern classes to unenhanced elements only
+        document.querySelectorAll('.roundbox:not(.cf-enhanced)').forEach(box => {
+            box.classList.add('modern-roundbox', 'cf-enhanced');
         });
 
-        document.querySelectorAll('.datatable').forEach(table => {
-            table.classList.add('modern-datatable');
+        document.querySelectorAll('.datatable:not(.cf-enhanced)').forEach(table => {
+            table.classList.add('modern-datatable', 'cf-enhanced');
         });
 
-        document.querySelectorAll('.problems').forEach(table => {
-            table.classList.add('modern-problems');
+        document.querySelectorAll('.problems:not(.cf-enhanced)').forEach(table => {
+            table.classList.add('modern-problems', 'cf-enhanced');
         });
 
-        // Enhance buttons
-        document.querySelectorAll('input[type="submit"]').forEach(button => {
-            button.classList.add('modern-button');
+        // Enhance unenhanced buttons
+        document.querySelectorAll('input[type="submit"]:not(.cf-enhanced)').forEach(button => {
+            button.classList.add('modern-button', 'cf-enhanced');
         });
     }
 
@@ -428,11 +442,22 @@ observer.observe(document.documentElement, {
         modernizeUI();
     }
 
-    // Handle dynamic content
-    new MutationObserver((mutations) => {
-        mutations.forEach(() => modernizeUI());
-    }).observe(document.documentElement, {
+    // Single observer for all changes
+    const styleObserver = new MutationObserver((mutations) => {
+        const shouldProcess = mutations.some(mutation => {
+            return Array.from(mutation.addedNodes).some(node => {
+                return node.nodeType === 1 && !node.classList.contains('cf-enhanced');
+            });
+        });
+
+        if (shouldProcess) {
+            modernizeUI();
+        }
+    });
+
+    styleObserver.observe(document.documentElement, {
         childList: true,
-        subtree: true
+        subtree: true,
+        attributes: false
     });
 })(); 
