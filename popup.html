@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeforces UI Enhancer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 280px;
+            padding: 16px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #262626;
+            font-size: 14px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #007acc;
+            margin-bottom: 4px;
+        }
+        
+        .version {
+            font-size: 11px;
+            color: #8c8c8c;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .control-group {
+            background: #f7f8fa;
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .control-group h3 {
+            font-size: 13px;
+            font-weight: 500;
+            color: #262626;
+            margin-bottom: 8px;
+        }
+        
+        .toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .toggle-label {
+            font-size: 12px;
+            color: #595959;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background: #d9d9d9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .toggle-switch.active {
+            background: #007acc;
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+        
+        .shortcuts {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e8e8e8;
+        }
+        
+        .shortcuts h3 {
+            font-size: 12px;
+            font-weight: 500;
+            color: #262626;
+            margin-bottom: 8px;
+        }
+        
+        .shortcut {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #8c8c8c;
+            margin-bottom: 4px;
+        }
+        
+        .shortcut-key {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .status {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 11px;
+            color: #595959;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🚀 Codeforces UI Enhancer</div>
+        <div class="version">v2.0.0 - LeetCode Style</div>
+    </div>
+    
+    <div class="controls">
+        <div class="control-group">
+            <h3>UI Enhancement</h3>
+            <div class="toggle">
+                <span class="toggle-label">Modern UI</span>
+                <div class="toggle-switch" id="enhancementToggle"></div>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <h3>Theme</h3>
+            <div class="toggle">
+                <span class="toggle-label">Dark Mode</span>
+                <div class="toggle-switch" id="themeToggle"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="shortcuts">
+        <h3>Keyboard Shortcuts</h3>
+        <div class="shortcut">
+            <span>Toggle Enhancement</span>
+            <span class="shortcut-key">Alt + E</span>
+        </div>
+        <div class="shortcut">
+            <span>Toggle Theme</span>
+            <span class="shortcut-key">Alt + T</span>
+        </div>
+    </div>
+    
+    <div class="status" id="status">
+        Ready to enhance your Codeforces experience!
+    </div>
+    
+    <script>
+        // Get current state from content script
+        function updatePopupState() {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {action: 'getState'}, function(response) {
+                    if (response) {
+                        updateToggle('enhancementToggle', response.isEnhanced);
+                        updateToggle('themeToggle', response.isDarkMode);
+                        updateStatus(response.isEnhanced, response.isDarkMode);
+                    }
+                });
+            });
+        }
+        
+        function updateToggle(toggleId, isActive) {
+            const toggle = document.getElementById(toggleId);
+            if (toggle) {
+                if (isActive) {
+                    toggle.classList.add('active');
+                } else {
+                    toggle.classList.remove('active');
+                }
+            }
+        }
+        
+        function updateStatus(isEnhanced, isDarkMode) {
+            const status = document.getElementById('status');
+            if (isEnhanced) {
+                status.textContent = `Enhancement: ON | Theme: ${isDarkMode ? 'Dark' : 'Light'}`;
+            } else {
+                status.textContent = 'Enhancement: OFF - Click to enable';
+            }
+        }
+        
+        // Toggle handlers
+        document.getElementById('enhancementToggle').addEventListener('click', function() {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {action: 'toggleEnhancement'});
+                setTimeout(updatePopupState, 100);
+            });
+        });
+        
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {action: 'toggleTheme'});
+                setTimeout(updatePopupState, 100);
+            });
+        });
+        
+        // Initialize popup
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePopupState();
+        });
+    </script>
+</body>
+</html>
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .control-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            transition: 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        input:checked + .slider {
+            background: #0066ff;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .control-description {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        
+        .shortcuts {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 16px;
+        }
+        
+        .shortcuts-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+        
+        .shortcut {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+        
+        .shortcut:last-child {
+            margin-bottom: 0;
+        }
+        
+        .kbd {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-text {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+        
+        .status.active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status.inactive {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">⚡ Beautiful CF</div>
+        <div class="version">v2.0.0</div>
+    </div>
+    
+    <div class="controls">
+        <div class="control-group">
+            <div class="control-row">
+                <div>
+                    <div class="control-title">UI Enhancement</div>
+                    <div class="control-description">Modern, beautiful design</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enhancementToggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <div class="control-row">
+                <div>
+                    <div class="control-title">Dark Mode</div>
+                    <div class="control-description">Easy on the eyes</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="shortcuts">
+        <div class="shortcuts-title">Keyboard Shortcuts</div>
+        <div class="shortcut">
+            <span>Toggle Theme</span>
+            <span class="kbd">Alt + T</span>
+        </div>
+        <div class="shortcut">
+            <span>Toggle Enhancement</span>
+            <span class="kbd">Alt + E</span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="status active" id="status">✓ Active</div>
+        <div class="footer-text">Making Codeforces beautiful</div>
+    </div>
+    
+    <script>
+        // Load saved settings
+        function loadSettings() {
+            const enhanced = localStorage.getItem('cf-enhanced-ui') !== 'false';
+            const darkMode = localStorage.getItem('cf-enhanced-theme') === 'dark';
+            
+            document.getElementById('enhancementToggle').checked = enhanced;
+            document.getElementById('themeToggle').checked = darkMode;
+            
+            updateStatus(enhanced);
+        }
+        
+        // Update status indicator
+        function updateStatus(active) {
+            const status = document.getElementById('status');
+            if (active) {
+                status.className = 'status active';
+                status.textContent = '✓ Active';
+            } else {
+                status.className = 'status inactive';
+                status.textContent = '✗ Inactive';
+            }
+        }
+        
+        // Handle enhancement toggle
+        document.getElementById('enhancementToggle').addEventListener('change', function() {
+            const isEnabled = this.checked;
+            localStorage.setItem('cf-enhanced-ui', isEnabled.toString());
+            updateStatus(isEnabled);
+            
+            // Send message to content script
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                if (tabs[0] && tabs[0].url.includes('codeforces.com')) {
+                    chrome.tabs.reload(tabs[0].id);
+                }
+            });
+        });
+        
+        // Handle theme toggle
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            const isDark = this.checked;
+            localStorage.setItem('cf-enhanced-theme', isDark ? 'dark' : 'light');
+            
+            // Send message to content script
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                if (tabs[0] && tabs[0].url.includes('codeforces.com')) {
+                    chrome.tabs.sendMessage(tabs[0].id, {
+                        action: 'toggleTheme',
+                        theme: isDark ? 'dark' : 'light'
+                    });
+                }
+            });
+        });
+        
+        // Initialize popup
+        document.addEventListener('DOMContentLoaded', loadSettings);
+    </script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Codeforces UI Enhancer",
-  "version": "1.0.0",
-  "description": "Transform Codeforces into a modern, minimalistic, and beautiful platform",
+  "name": "Codeforces UI Enhancer - Beautiful Modern Interface",
+  "version": "2.0.0",
+  "description": "Transform Codeforces into an absolutely stunning, modern, and beautiful platform with cutting-edge design",
   "permissions": [
     "storage",
-    "scripting"
+    "activeTab"
   ],
   "host_permissions": [
     "*://*.codeforces.com/*"
@@ -19,7 +19,7 @@
     }
   ],
   "web_accessible_resources": [{
-    "resources": ["styles.css"],
+    "resources": ["styles.css", "icons/*"],
     "matches": ["*://*.codeforces.com/*"]
   }],
   "icons": {
@@ -32,6 +32,8 @@
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
-    }
+    },
+    "default_title": "Toggle Beautiful Codeforces UI",
+    "default_popup": "popup.html"
   }
 } 
