@@ -1,47 +1,26 @@
 /* ============================
-   CODEFORCES UI ENHANCER - LEETCODE STYLE
-   Clean, Modern, Professional Design
+   CODEFORCES LEETCODE-STYLE UI
+   Clean Navigation - Starting Fresh
    ============================ */
 
-/* Import clean fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600&display=swap');
+/* Import clean font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ====== CSS VARIABLES (LEETCODE STYLE) ====== */
+/* CSS Variables - LeetCode Style */
 :root {
-  /* LeetCode Color Palette */
-  --primary-orange: #ffa116;
-  --primary-green: #00af9b;
-  --primary-blue: #007acc;
-  --accent-red: #ef4743;
-  --accent-purple: #8e44ad;
-  
-  /* Background Colors (Light) */
+  /* LeetCode Colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f7f8fa;
-  --bg-tertiary: #eff1f6;
-  --bg-card: #ffffff;
-  --bg-hover: #f7f8fa;
-  --bg-active: #eff1f6;
-  
-  /* Text Colors (Light) */
+  --bg-nav: #ffffff;
   --text-primary: #262626;
   --text-secondary: #595959;
-  --text-tertiary: #8c8c8c;
-  --text-muted: #bfbfbf;
-  
-  /* Border Colors */
-  --border-primary: #e8e8e8;
-  --border-secondary: #d9d9d9;
-  --border-hover: #40a9ff;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --text-muted: #8c8c8c;
+  --border: #e8e8e8;
+  --accent: #ffa116; /* LeetCode orange */
+  --hover-bg: #f5f5f5;
   
   /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'Source Code Pro', 'Menlo', 'Monaco', Consolas, monospace;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
   /* Spacing */
   --space-xs: 0.25rem;
@@ -49,74 +28,53 @@
   --space-md: 0.75rem;
   --space-lg: 1rem;
   --space-xl: 1.5rem;
-  --space-2xl: 2rem;
-  --space-3xl: 3rem;
   
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
+  /* Border radius */
+  --radius: 0.375rem;
   
-  /* Transitions */
-  --transition: 0.2s ease-in-out;
+  /* Shadows */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode variables */
-.cf-dark {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #262626;
-  --bg-tertiary: #303030;
-  --bg-card: #262626;
-  --bg-hover: #303030;
-  --bg-active: #3a3a3a;
-  
-  --text-primary: #ffffff;
-  --text-secondary: #d9d9d9;
-  --text-tertiary: #8c8c8c;
-  --text-muted: #595959;
-  
-  --border-primary: #303030;
-  --border-secondary: #404040;
-  --border-hover: #40a9ff;
-}
-
-/* ====== CONDITIONAL ENHANCEMENT STYLES ====== */
-/* Only apply styles when enhancement is enabled */
-
-.cf-enhanced-ui {
-  /* Global enhancement class - enables all the UI improvements below */
-  position: relative;
-}
-
-.cf-enhanced-ui body {
+/* Only apply when the class is present */
+.cf-leetcode-ui {
   font-family: var(--font-primary) !important;
-  background-color: var(--bg-secondary) !important;
-  color: var(--text-primary) !important;
-  line-height: 1.5 !important;
-  transition: background-color var(--transition), color var(--transition);
 }
 
-/* ====== HEADER ENHANCEMENTS ====== */
-.cf-enhanced-ui #header {
-  background-color: var(--bg-primary) !important;
-  border-bottom: 1px solid var(--border-primary) !important;
-  box-shadow: var(--shadow-sm) !important;
+/* ====== NAVIGATION BAR (LEETCODE STYLE) ====== */
+.cf-leetcode-ui #header {
+  background: var(--bg-nav) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow) !important;
   padding: 0 var(--space-xl) !important;
   height: 64px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
 }
 
-.cf-enhanced-ui #header .logo {
+/* Logo Area */
+.cf-leetcode-ui #header .logo,
+.cf-leetcode-ui #header a[href="/"] {
   font-size: 20px !important;
   font-weight: 600 !important;
   color: var(--text-primary) !important;
   text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-sm) !important;
 }
 
-.cf-enhanced-ui #header .menu {
+.cf-leetcode-ui #header .logo:hover {
+  color: var(--accent) !important;
+}
+
+/* Main Navigation Menu */
+.cf-leetcode-ui #header .main-nav,
+.cf-leetcode-ui #header ul.menu {
   display: flex !important;
   align-items: center !important;
   gap: var(--space-xl) !important;
@@ -125,309 +83,173 @@
   padding: 0 !important;
 }
 
-.cf-enhanced-ui #header .menu a {
+.cf-leetcode-ui #header .main-nav li,
+.cf-leetcode-ui #header ul.menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.cf-leetcode-ui #header .main-nav a,
+.cf-leetcode-ui #header ul.menu a {
   color: var(--text-secondary) !important;
   text-decoration: none !important;
   font-weight: 500 !important;
+  font-size: 14px !important;
   padding: var(--space-sm) var(--space-md) !important;
-  border-radius: var(--radius-md) !important;
-  transition: all var(--transition);
+  border-radius: var(--radius) !important;
+  transition: all 0.2s ease !important;
+  display: block !important;
 }
 
-.cf-enhanced-ui #header .menu a:hover {
+.cf-leetcode-ui #header .main-nav a:hover,
+.cf-leetcode-ui #header ul.menu a:hover {
   color: var(--text-primary) !important;
-  background-color: var(--bg-hover) !important;
+  background-color: var(--hover-bg) !important;
 }
 
-/* ====== MAIN CONTENT ====== */
-.cf-enhanced-ui .content-wrapper,
-.cf-enhanced-ui #body,
-.cf-enhanced-ui #main {
+/* Right side - User area */
+.cf-leetcode-ui #header .user-area {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-md) !important;
+}
+
+.cf-leetcode-ui #header .lang-chooser,
+.cf-leetcode-ui #header .user-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-sm) !important;
+}
+
+/* ====== MAIN CONTENT AREA CLEANUP ====== */
+.cf-leetcode-ui body {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.cf-leetcode-ui #body,
+.cf-leetcode-ui .main {
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: var(--space-xl) !important;
+  background: transparent !important;
 }
 
-/* ====== CARDS AND CONTAINERS ====== */
-.cf-enhanced-ui .roundbox,
-.cf-enhanced-ui .datatable,
-.cf-enhanced-ui .sidebar {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-primary) !important;
-  border-radius: var(--radius-lg) !important;
+/* ====== BASIC CARDS ====== */
+.cf-leetcode-ui .roundbox {
+  background: var(--bg-primary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
   padding: var(--space-xl) !important;
-  margin-bottom: var(--space-xl) !important;
-  box-shadow: var(--shadow-sm) !important;
-  transition: all var(--transition);
+  margin-bottom: var(--space-lg) !important;
+  box-shadow: var(--shadow) !important;
 }
 
-.cf-enhanced-ui .roundbox:hover,
-.cf-enhanced-ui .datatable:hover {
-  box-shadow: var(--shadow-md) !important;
+/* ====== CLEAN BUTTONS ====== */
+.cf-leetcode-ui .button,
+.cf-leetcode-ui button,
+.cf-leetcode-ui input[type="submit"] {
+  background: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: var(--space-sm) var(--space-lg) !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: var(--font-primary) !important;
 }
 
-/* ====== TABLE ENHANCEMENTS ====== */
-.cf-enhanced-ui table {
+.cf-leetcode-ui .button:hover,
+.cf-leetcode-ui button:hover,
+.cf-leetcode-ui input[type="submit"]:hover {
+  background: #e09100 !important;
+  transform: translateY(-1px);
+}
+
+/* ====== CLEAN TABLES ====== */
+.cf-leetcode-ui table {
   width: 100% !important;
   border-collapse: collapse !important;
-  background-color: var(--bg-card) !important;
-  border-radius: var(--radius-lg) !important;
+  background: var(--bg-primary) !important;
+  border-radius: var(--radius) !important;
   overflow: hidden !important;
-  box-shadow: var(--shadow-sm) !important;
+  box-shadow: var(--shadow) !important;
+  margin-bottom: var(--space-lg) !important;
 }
 
-.cf-enhanced-ui table th {
-  background-color: var(--bg-tertiary) !important;
+.cf-leetcode-ui table th {
+  background: var(--bg-secondary) !important;
   color: var(--text-primary) !important;
   font-weight: 600 !important;
   padding: var(--space-md) var(--space-lg) !important;
   text-align: left !important;
-  border-bottom: 1px solid var(--border-primary) !important;
+  border-bottom: 1px solid var(--border) !important;
   font-size: 14px !important;
 }
 
-.cf-enhanced-ui table td {
+.cf-leetcode-ui table td {
   padding: var(--space-md) var(--space-lg) !important;
-  border-bottom: 1px solid var(--border-primary) !important;
+  border-bottom: 1px solid var(--border) !important;
   color: var(--text-secondary) !important;
   font-size: 14px !important;
 }
 
-.cf-enhanced-ui table tr:hover {
-  background-color: var(--bg-hover) !important;
+.cf-leetcode-ui table tr:hover {
+  background: var(--hover-bg) !important;
 }
 
-.cf-enhanced-ui table tr:last-child td {
+.cf-leetcode-ui table tr:last-child td {
   border-bottom: none !important;
 }
 
-/* ====== BUTTONS ====== */
-.cf-enhanced-ui .button,
-.cf-enhanced-ui button,
-.cf-enhanced-ui input[type="submit"],
-.cf-enhanced-ui input[type="button"] {
-  background-color: var(--primary-blue) !important;
-  color: white !important;
-  border: none !important;
-  border-radius: var(--radius-md) !important;
-  padding: var(--space-sm) var(--space-lg) !important;
-  font-weight: 500 !important;
-  cursor: pointer !important;
-  transition: all var(--transition);
-  font-family: var(--font-primary) !important;
-}
-
-.cf-enhanced-ui .button:hover,
-.cf-enhanced-ui button:hover,
-.cf-enhanced-ui input[type="submit"]:hover,
-.cf-enhanced-ui input[type="button"]:hover {
-  background-color: var(--primary-green) !important;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md) !important;
-}
-
-/* ====== FORM INPUTS ====== */
-.cf-enhanced-ui input[type="text"],
-.cf-enhanced-ui input[type="email"],
-.cf-enhanced-ui input[type="password"],
-.cf-enhanced-ui textarea,
-.cf-enhanced-ui select {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-primary) !important;
-  border-radius: var(--radius-md) !important;
-  padding: var(--space-sm) var(--space-md) !important;
-  font-family: var(--font-primary) !important;
-  color: var(--text-primary) !important;
-  transition: border-color var(--transition);
-  width: 100%;
-}
-
-.cf-enhanced-ui input[type="text"]:focus,
-.cf-enhanced-ui input[type="email"]:focus,
-.cf-enhanced-ui input[type="password"]:focus,
-.cf-enhanced-ui textarea:focus,
-.cf-enhanced-ui select:focus {
-  outline: none !important;
-  border-color: var(--border-hover) !important;
-  box-shadow: 0 0 0 3px rgba(64, 169, 255, 0.1) !important;
-}
-
-/* ====== LINKS ====== */
-.cf-enhanced-ui a {
-  color: var(--primary-blue) !important;
+/* ====== CLEAN LINKS ====== */
+.cf-leetcode-ui a {
+  color: var(--accent) !important;
   text-decoration: none !important;
-  transition: color var(--transition);
+  transition: color 0.2s ease !important;
 }
 
-.cf-enhanced-ui a:hover {
-  color: var(--primary-green) !important;
+.cf-leetcode-ui a:hover {
+  color: #e09100 !important;
 }
 
-/* ====== CODE BLOCKS ====== */
-.cf-enhanced-ui pre,
-.cf-enhanced-ui code {
-  font-family: var(--font-mono) !important;
-  background-color: var(--bg-tertiary) !important;
-  border: 1px solid var(--border-primary) !important;
-  border-radius: var(--radius-md) !important;
-  padding: var(--space-md) !important;
-  font-size: 13px !important;
-  line-height: 1.5 !important;
+/* ====== REMOVE OLD CODEFORCES STYLING ====== */
+.cf-leetcode-ui * {
+  font-family: var(--font-primary) !important;
 }
 
-.cf-enhanced-ui code {
-  padding: var(--space-xs) var(--space-sm) !important;
-  display: inline !important;
-}
-
-/* ====== PROBLEM STATEMENT ====== */
-.cf-enhanced-ui .problem-statement {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-primary) !important;
-  border-radius: var(--radius-lg) !important;
-  padding: var(--space-2xl) !important;
-  margin-bottom: var(--space-xl) !important;
-}
-
-.cf-enhanced-ui .problem-statement .title {
-  font-size: 24px !important;
-  font-weight: 600 !important;
-  color: var(--text-primary) !important;
-  margin-bottom: var(--space-lg) !important;
-}
-
-.cf-enhanced-ui .problem-statement .header {
-  border-bottom: 1px solid var(--border-primary) !important;
-  padding-bottom: var(--space-lg) !important;
-  margin-bottom: var(--space-lg) !important;
-}
-
-/* ====== THEME TOGGLE ====== */
-.cf-theme-toggle {
+/* ====== STATUS INDICATOR ====== */
+.cf-status {
   position: fixed;
-  top: var(--space-lg);
-  right: var(--space-lg);
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 500;
   z-index: 9999;
+  box-shadow: var(--shadow);
 }
 
-.cf-theme-btn {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-primary) !important;
-  border-radius: var(--radius-md) !important;
-  width: 40px !important;
-  height: 40px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  transition: all var(--transition);
-  box-shadow: var(--shadow-md) !important;
-  font-size: 16px !important;
-}
-
-.cf-theme-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg) !important;
-}
-
-/* ====== ENHANCEMENT TOGGLE ====== */
-.cf-enhancement-toggle {
-  position: fixed;
-  top: var(--space-lg);
-  right: 60px;
-  z-index: 9999;
-}
-
-.cf-enhancement-btn {
-  background-color: var(--primary-green) !important;
-  color: white !important;
-  border: none !important;
-  border-radius: var(--radius-md) !important;
-  width: 40px !important;
-  height: 40px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  transition: all var(--transition);
-  box-shadow: var(--shadow-md) !important;
-  font-size: 16px !important;
-}
-
-.cf-enhancement-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg) !important;
-}
-
-.cf-enhancement-btn.disabled {
-  background-color: var(--text-muted) !important;
-}
-
-/* ====== RATING COLORS ====== */
-.cf-enhanced-ui .legendary { color: #ff0000 !important; font-weight: 600 !important; }
-.cf-enhanced-ui .red { color: #ff3333 !important; font-weight: 600 !important; }
-.cf-enhanced-ui .orange { color: var(--primary-orange) !important; font-weight: 600 !important; }
-.cf-enhanced-ui .violet { color: var(--accent-purple) !important; font-weight: 600 !important; }
-.cf-enhanced-ui .blue { color: var(--primary-blue) !important; font-weight: 600 !important; }
-.cf-enhanced-ui .cyan { color: var(--primary-green) !important; font-weight: 600 !important; }
-.cf-enhanced-ui .green { color: #00b894 !important; font-weight: 600 !important; }
-.cf-enhanced-ui .gray { color: var(--text-muted) !important; font-weight: 500 !important; }
-
-/* ====== RESPONSIVE DESIGN ====== */
+/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
-  .cf-enhanced-ui .content-wrapper,
-  .cf-enhanced-ui #body,
-  .cf-enhanced-ui #main {
-    padding: var(--space-lg) !important;
+  .cf-leetcode-ui #header {
+    padding: 0 var(--space-md) !important;
   }
   
-  .cf-enhanced-ui .roundbox,
-  .cf-enhanced-ui .datatable {
-    padding: var(--space-lg) !important;
+  .cf-leetcode-ui #header .main-nav,
+  .cf-leetcode-ui #header ul.menu {
+    gap: var(--space-md) !important;
   }
   
-  .cf-theme-toggle {
-    top: var(--space-sm);
-    right: var(--space-sm);
-  }
-  
-  .cf-enhancement-toggle {
-    top: var(--space-sm);
-    right: 50px;
+  .cf-leetcode-ui #body,
+  .cf-leetcode-ui .main {
+    padding: var(--space-md) !important;
   }
 }
-
-/* ====== SMOOTH SCROLLBAR ====== */
-.cf-enhanced-ui ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-.cf-enhanced-ui ::-webkit-scrollbar-track {
-  background: var(--bg-tertiary);
-}
-
-.cf-enhanced-ui ::-webkit-scrollbar-thumb {
-  background: var(--border-secondary);
-  border-radius: 3px;
-}
-
-.cf-enhanced-ui ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
-}
-
-/* ====== SELECTION STYLING ====== */
-.cf-enhanced-ui ::selection {
-  background: rgba(64, 169, 255, 0.2);
-  color: var(--text-primary);
-}
-
-/* ====== ANIMATIONS ====== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.cf-enhanced-ui .cf-fade-in {
-  animation: fadeIn 0.3s ease-out;
-} 

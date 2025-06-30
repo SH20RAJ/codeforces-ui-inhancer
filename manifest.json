@@ -1,10 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Codeforces UI Enhancer - Beautiful Modern Interface",
-  "version": "2.0.0",
-  "description": "Transform Codeforces into an absolutely stunning, modern, and beautiful platform with cutting-edge design",
+  "name": "Codeforces UI Enhancer - LeetCode Style",
+  "version": "1.0.0",
+  "description": "Clean LeetCode-style navigation and UI for Codeforces",
   "permissions": [
-    "storage",
     "activeTab"
   ],
   "host_permissions": [
@@ -18,22 +17,18 @@
       "run_at": "document_start"
     }
   ],
-  "web_accessible_resources": [{
-    "resources": ["styles.css", "icons/*"],
-    "matches": ["*://*.codeforces.com/*"]
-  }],
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
   "action": {
+    "default_popup": "popup.html",
+    "default_title": "Codeforces UI Enhancer",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
-    },
-    "default_title": "Toggle Beautiful Codeforces UI",
-    "default_popup": "popup.html"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
 } 
