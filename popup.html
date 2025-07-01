@@ -28,10 +28,101 @@
         }
         
         .logo {
-            font-size: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .logo::before {
+            content: '⚡';
+            margin-right: 8px;
+            filter: drop-shadow(0 0 8px rgba(255, 161, 22, 0.5));
+        }
+        
+        .subtitle {
+            color: #595959;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #262626;
+        }
+        
+        .features li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #ffa116 0%, #f59e0b 100%);
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .new-features {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .new-features h4 {
+            color: #1a1a1a;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .new-features h4::before {
+            content: '✨';
+            margin-right: 6px;
+        }
+        
+        .new-features ul {
+            list-style: none;
+            font-size: 12px;
+            color: #595959;
+        }
+        
+        .new-features li {
+            padding: 2px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .new-features li::before {
+            content: '→';
+            margin-right: 8px;
             color: #ffa116;
-            margin-bottom: 6px;
+            font-weight: 600;
         }
         
         .version {
@@ -107,47 +198,40 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">⚡ Codeforces UI</div>
-        <div class="version">LeetCode Style v1.0</div>
+        <div class="logo">Codeforces UI</div>
+        <div class="subtitle">LeetCode Style Enhanced</div>
     </div>
     
-    <div class="status-card">
-        <div class="status-title">✨ Enhancement Active</div>
-        <div class="status-text">
-            Your Codeforces experience is now enhanced with a clean, LeetCode-style interface.
-        </div>
+    <div class="status">✨ Enhancement Active</div>
+    
+    <div class="new-features">
+        <h4>Latest Features</h4>
+        <ul>
+            <li>Enhanced search bar in navigation</li>
+            <li>Notification badge with animations</li>
+            <li>Theme toggle button</li>
+            <li>Improved breadcrumb navigation</li>
+            <li>Pulsing logo with better branding</li>
+        </ul>
     </div>
     
-    <div class="features">
-        <h3>Current Features</h3>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span>Clean navigation bar</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span>Professional typography</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span>Improved tables & buttons</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span>LeetCode-style colors</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span>Responsive design</span>
-        </div>
-    </div>
+    <ul class="features">
+        <li>Full-width dark navigation bar</li>
+        <li>Beautiful gradient backgrounds</li>
+        <li>Professional Inter font family</li>
+        <li>Smooth hover animations</li>
+        <li>Enhanced tables and buttons</li>
+        <li>LeetCode-inspired color scheme</li>
+        <li>Responsive mobile design</li>
+        <li>Custom scrollbar styling</li>
+    </ul>
     
     <div class="reload-hint">
-        💡 If you don't see changes, try refreshing the page
+        💡 Refresh codeforces.com to see the latest enhancements
     </div>
     
     <div class="info">
-        Visit codeforces.com to see the enhanced UI
+        Made with ❤️ for competitive programmers
     </div>
 </body>
 </html>
