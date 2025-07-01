@@ -1,20 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "Codeforces UI Enhancer - LeetCode Style",
-  "version": "1.0.0",
-  "description": "Clean LeetCode-style navigation and UI for Codeforces",
+  "name": "Codeforces UI Enhancer - Minimal Clean",
+  "version": "3.0.0",
+  "description": "Minimal, clean, and beautiful UI for Codeforces with toggle controls",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "host_permissions": [
     "*://*.codeforces.com/*"
   ],
+  "web_accessible_resources": [
+    {
+      "resources": ["design-system.json", "src/styles/*.css"],
+      "matches": ["*://*.codeforces.com/*"]
+    }
+  ],
   "content_scripts": [
     {
       "matches": ["*://*.codeforces.com/*"],
-      "css": ["styles.css"],
+      "css": ["src/styles/main.css"],
       "js": ["content.js"],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ],
   "action": {
