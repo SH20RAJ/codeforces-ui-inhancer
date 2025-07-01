@@ -1,0 +1,110 @@
+/* ================================
+   DESIGN TOKENS & CSS VARIABLES
+   Minimalistic Clean Design System
+   ================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+:root {
+  /* === COLOR SYSTEM === */
+  --cf-bg-primary: #0a0a0a;
+  --cf-bg-surface: #1a1a1a;
+  --cf-bg-card: #2a2a2a;
+  --cf-bg-hover: rgba(255, 255, 255, 0.05);
+  --cf-bg-active: rgba(255, 255, 255, 0.1);
+  
+  --cf-border-primary: rgba(255, 255, 255, 0.1);
+  --cf-border-secondary: rgba(255, 255, 255, 0.05);
+  
+  --cf-text-primary: #ffffff;
+  --cf-text-secondary: rgba(255, 255, 255, 0.7);
+  --cf-text-muted: rgba(255, 255, 255, 0.5);
+  --cf-text-inverse: #000000;
+  
+  /* === ACCENT COLORS === */
+  --cf-green: #4ade80;
+  --cf-green-dark: #10b981;
+  --cf-orange: #fb923c;
+  --cf-orange-dark: #f59e0b;
+  --cf-blue: #60a5fa;
+  --cf-blue-dark: #3b82f6;
+  --cf-purple: #a78bfa;
+  --cf-red: #f87171;
+  
+  /* === SEMANTIC COLORS === */
+  --cf-success: var(--cf-green-dark);
+  --cf-warning: var(--cf-orange-dark);
+  --cf-error: #ef4444;
+  --cf-info: var(--cf-blue-dark);
+  
+  /* === TYPOGRAPHY === */
+  --cf-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --cf-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  --cf-text-xs: 0.75rem;
+  --cf-text-sm: 0.875rem;
+  --cf-text-base: 1rem;
+  --cf-text-lg: 1.125rem;
+  --cf-text-xl: 1.25rem;
+  --cf-text-2xl: 1.5rem;
+  --cf-text-3xl: 1.875rem;
+  
+  --cf-weight-normal: 400;
+  --cf-weight-medium: 500;
+  --cf-weight-semibold: 600;
+  --cf-weight-bold: 700;
+  
+  /* === SPACING SYSTEM === */
+  --cf-space-xs: 0.25rem;
+  --cf-space-sm: 0.5rem;
+  --cf-space-md: 0.75rem;
+  --cf-space-lg: 1rem;
+  --cf-space-xl: 1.5rem;
+  --cf-space-2xl: 2rem;
+  --cf-space-3xl: 3rem;
+  
+  /* === BORDER RADIUS === */
+  --cf-radius-sm: 0.25rem;
+  --cf-radius-md: 0.375rem;
+  --cf-radius-lg: 0.5rem;
+  --cf-radius-xl: 0.75rem;
+  --cf-radius-2xl: 1rem;
+  --cf-radius-full: 9999px;
+  
+  /* === SHADOWS === */
+  --cf-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --cf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --cf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --cf-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  
+  /* === TRANSITIONS === */
+  --cf-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cf-transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cf-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* === COMPONENT SIZES === */
+  --cf-navbar-height: 64px;
+  --cf-sidebar-width: 280px;
+}
+
+/* === LIGHT MODE OVERRIDE === */
+[data-cf-theme="light"] {
+  --cf-bg-primary: #ffffff;
+  --cf-bg-surface: #f8fafc;
+  --cf-bg-card: #ffffff;
+  --cf-bg-hover: rgba(0, 0, 0, 0.05);
+  --cf-bg-active: rgba(0, 0, 0, 0.1);
+  
+  --cf-border-primary: rgba(0, 0, 0, 0.1);
+  --cf-border-secondary: rgba(0, 0, 0, 0.05);
+  
+  --cf-text-primary: #1a202c;
+  --cf-text-secondary: rgba(26, 32, 44, 0.7);
+  --cf-text-muted: rgba(26, 32, 44, 0.5);
+  --cf-text-inverse: #ffffff;
+  
+  --cf-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --cf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --cf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --cf-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,159 @@
+/* ================================
+   MAIN STYLESHEET
+   Imports all modular components
+   ================================ */
+
+@import url('./tokens.css');
+@import url('./navbar.css');
+@import url('./components.css');
+
+/* === ENHANCEMENT STATE === */
+.cf-enhanced {
+  font-family: var(--cf-font-primary) !important;
+}
+
+/* === UTILITY CLASSES === */
+.cf-hidden {
+  display: none !important;
+}
+
+.cf-visible {
+  display: block !important;
+}
+
+.cf-fade-in {
+  animation: cf-fadeIn var(--cf-transition-normal) ease-out !important;
+}
+
+.cf-slide-up {
+  animation: cf-slideUp var(--cf-transition-normal) ease-out !important;
+}
+
+/* === ANIMATIONS === */
+@keyframes cf-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cf-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === STATUS INDICATOR === */
+.cf-status-indicator {
+  position: fixed !important;
+  bottom: var(--cf-space-xl) !important;
+  right: var(--cf-space-xl) !important;
+  background: linear-gradient(135deg, var(--cf-green) 0%, var(--cf-green-dark) 100%) !important;
+  color: var(--cf-text-inverse) !important;
+  padding: var(--cf-space-md) var(--cf-space-lg) !important;
+  border-radius: var(--cf-radius-full) !important;
+  font-family: var(--cf-font-primary) !important;
+  font-size: var(--cf-text-xs) !important;
+  font-weight: var(--cf-weight-semibold) !important;
+  z-index: 10000 !important;
+  box-shadow: var(--cf-shadow-lg) !important;
+  border: 1px solid var(--cf-border-primary) !important;
+  backdrop-filter: blur(10px) !important;
+  animation: cf-slideUp var(--cf-transition-slow) ease-out !important;
+  cursor: pointer !important;
+  transition: all var(--cf-transition-normal) !important;
+}
+
+.cf-status-indicator:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--cf-shadow-xl) !important;
+}
+
+/* === TOGGLE BUTTON === */
+.cf-toggle-btn {
+  position: fixed !important;
+  top: 50% !important;
+  right: var(--cf-space-lg) !important;
+  transform: translateY(-50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background: var(--cf-bg-card) !important;
+  border: 1px solid var(--cf-border-primary) !important;
+  border-radius: var(--cf-radius-full) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 10000 !important;
+  box-shadow: var(--cf-shadow-md) !important;
+  transition: all var(--cf-transition-normal) !important;
+  font-size: var(--cf-text-lg) !important;
+}
+
+.cf-toggle-btn:hover {
+  background: var(--cf-bg-active) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+  box-shadow: var(--cf-shadow-lg) !important;
+}
+
+.cf-toggle-btn.active {
+  background: linear-gradient(135deg, var(--cf-green) 0%, var(--cf-green-dark) 100%) !important;
+  color: var(--cf-text-inverse) !important;
+}
+
+/* === THEME TOGGLE === */
+.cf-theme-toggle {
+  position: fixed !important;
+  top: calc(50% + 60px) !important;
+  right: var(--cf-space-lg) !important;
+  transform: translateY(-50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background: var(--cf-bg-card) !important;
+  border: 1px solid var(--cf-border-primary) !important;
+  border-radius: var(--cf-radius-full) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 10000 !important;
+  box-shadow: var(--cf-shadow-md) !important;
+  transition: all var(--cf-transition-normal) !important;
+  font-size: var(--cf-text-lg) !important;
+}
+
+.cf-theme-toggle:hover {
+  background: var(--cf-bg-active) !important;
+  transform: translateY(-50%) scale(1.1) rotate(180deg) !important;
+  box-shadow: var(--cf-shadow-lg) !important;
+}
+
+/* === MOBILE OPTIMIZATIONS === */
+@media (max-width: 768px) {
+  .cf-toggle-btn,
+  .cf-theme-toggle {
+    right: var(--cf-space-md) !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+  
+  .cf-status-indicator {
+    bottom: var(--cf-space-lg) !important;
+    right: var(--cf-space-md) !important;
+    font-size: var(--cf-text-xs) !important;
+    padding: var(--cf-space-sm) var(--cf-space-md) !important;
+  }
+}
+
+/* === SELECTION === */
+.cf-enhanced ::selection {
+  background: rgba(96, 165, 250, 0.2) !important;
+  color: var(--cf-text-primary) !important;
+}
