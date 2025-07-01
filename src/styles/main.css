@@ -1,363 +1,677 @@
 /* ================================
-   CF ENHANCER v3.0 - MINIMAL CLEAN
-   Non-destructive, Beautiful Design
+   CF ENHANCER v4.0 - DEV.TO INSPIRED
+   Modern, Clean, Non-destructive Design
    ================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* === CSS VARIABLES === */
 :root {
-  --cf-bg-primary: #0a0a0a;
-  --cf-bg-surface: #1a1a1a;
-  --cf-bg-card: #2a2a2a;
-  --cf-bg-hover: rgba(255, 255, 255, 0.05);
+  /* Dev.to inspired spacing system */
+  --cf-space-xs: 4px;
+  --cf-space-sm: 8px;
+  --cf-space-md: 16px;
+  --cf-space-lg: 24px;
+  --cf-space-xl: 32px;
+  --cf-space-2xl: 48px;
+  --cf-space-3xl: 64px;
   
-  --cf-text-primary: #ffffff;
-  --cf-text-secondary: rgba(255, 255, 255, 0.7);
-  --cf-text-muted: rgba(255, 255, 255, 0.5);
+  /* Dark theme colors (dev.to night mode inspired) */
+  --cf-bg-primary: #0f0f23;
+  --cf-bg-surface: #161625;
+  --cf-bg-card: #1e1e2e;
+  --cf-bg-hover: rgba(255, 255, 255, 0.03);
+  --cf-bg-accent: rgba(64, 132, 255, 0.1);
   
-  --cf-border: rgba(255, 255, 255, 0.1);
-  --cf-accent: #4ade80;
-  --cf-blue: #60a5fa;
-  --cf-orange: #fb923c;
+  --cf-text-primary: #f4f4f5;
+  --cf-text-secondary: #a1a1aa;
+  --cf-text-muted: #71717a;
+  --cf-text-accent: #4084ff;
   
-  --cf-radius: 0.75rem;
-  --cf-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-  --cf-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --cf-border-light: rgba(255, 255, 255, 0.06);
+  --cf-border-medium: rgba(255, 255, 255, 0.12);
+  --cf-border-heavy: rgba(255, 255, 255, 0.2);
+  
+  --cf-accent: #4084ff;
+  --cf-accent-hover: #5a94ff;
+  --cf-success: #10b981;
+  --cf-warning: #f59e0b;
+  --cf-error: #ef4444;
+  
+  /* Dev.to inspired radii */
+  --cf-radius-sm: 6px;
+  --cf-radius: 8px;
+  --cf-radius-lg: 12px;
+  --cf-radius-xl: 16px;
+  
+  /* Subtle shadows like dev.to */
+  --cf-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --cf-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --cf-shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  
+  --cf-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Light theme */
+/* Light theme (dev.to default inspired) */
 [data-cf-theme="light"] {
-  --cf-bg-primary: #ffffff;
-  --cf-bg-surface: #f8fafc;
+  --cf-bg-primary: #fafafa;
+  --cf-bg-surface: #ffffff;
   --cf-bg-card: #ffffff;
-  --cf-bg-hover: rgba(0, 0, 0, 0.05);
+  --cf-bg-hover: rgba(0, 0, 0, 0.02);
+  --cf-bg-accent: rgba(64, 132, 255, 0.08);
   
-  --cf-text-primary: #1a202c;
-  --cf-text-secondary: rgba(26, 32, 44, 0.7);
-  --cf-text-muted: rgba(26, 32, 44, 0.5);
+  --cf-text-primary: #0a0a0a;
+  --cf-text-secondary: #525252;
+  --cf-text-muted: #a3a3a3;
+  --cf-text-accent: #4084ff;
   
-  --cf-border: rgba(0, 0, 0, 0.1);
-  --cf-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --cf-border-light: rgba(0, 0, 0, 0.06);
+  --cf-border-medium: rgba(0, 0, 0, 0.12);
+  --cf-border-heavy: rgba(0, 0, 0, 0.2);
+  
+  --cf-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --cf-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --cf-shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* === BASE STYLES === */
 .cf-enhanced {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11' !important;
+  font-variant-numeric: oldstyle-nums !important;
+  line-height: 1.6 !important;
 }
 
 .cf-enhanced body {
   background: var(--cf-bg-primary) !important;
   color: var(--cf-text-primary) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
 }
 
-/* === NAVIGATION === */
+/* === LAYOUT CONTAINER (dev.to style) === */
+.cf-enhanced #body,
+.cf-enhanced .main {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: var(--cf-space-lg) var(--cf-space-md) !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: var(--cf-space-lg) !important;
+}
+
+@media (min-width: 768px) {
+  .cf-enhanced #body,
+  .cf-enhanced .main {
+    padding: var(--cf-space-xl) var(--cf-space-lg) !important;
+    gap: var(--cf-space-xl) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cf-enhanced #body,
+  .cf-enhanced .main {
+    padding: var(--cf-space-2xl) var(--cf-space-xl) !important;
+  }
+}
+
+/* === NAVIGATION (dev.to inspired header) === */
 .cf-enhanced #header {
-  background: linear-gradient(135deg, var(--cf-bg-primary) 0%, var(--cf-bg-surface) 100%) !important;
+  background: var(--cf-bg-surface) !important;
   border: none !important;
-  border-bottom: 1px solid var(--cf-border) !important;
-  box-shadow: var(--cf-shadow) !important;
+  border-bottom: 1px solid var(--cf-border-light) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
   backdrop-filter: blur(20px) !important;
-  height: 64px !important;
+  height: 56px !important;
   display: flex !important;
   align-items: center !important;
-  padding: 0 2rem !important;
+  padding: 0 var(--cf-space-md) !important;
   position: sticky !important;
   top: 0 !important;
-  z-index: 9999 !important;
+  z-index: 50 !important;
+  transition: all var(--cf-transition) !important;
 }
 
+@media (min-width: 768px) {
+  .cf-enhanced #header {
+    height: 64px !important;
+    padding: 0 var(--cf-space-xl) !important;
+  }
+}
+
+/* Logo/Brand */
 .cf-enhanced #header .logo,
 .cf-enhanced #header a[href="/"] {
   color: var(--cf-text-primary) !important;
   font-weight: 700 !important;
-  font-size: 1.25rem !important;
+  font-size: 18px !important;
   text-decoration: none !important;
   display: flex !important;
   align-items: center !important;
-  gap: 0.5rem !important;
-  padding: 0.5rem 1rem !important;
+  gap: var(--cf-space-sm) !important;
+  padding: var(--cf-space-sm) var(--cf-space-md) !important;
   background: var(--cf-bg-hover) !important;
-  border: 1px solid var(--cf-border) !important;
+  border: 1px solid var(--cf-border-light) !important;
   border-radius: var(--cf-radius) !important;
   transition: all var(--cf-transition) !important;
+  height: 40px !important;
+  min-width: 140px !important;
 }
 
 .cf-enhanced #header .logo::before,
 .cf-enhanced #header a[href="/"]::before {
   content: '⚡' !important;
+  font-size: 16px !important;
   filter: drop-shadow(0 0 8px var(--cf-accent)) !important;
 }
 
 .cf-enhanced #header .logo:hover,
 .cf-enhanced #header a[href="/"]:hover {
-  background: var(--cf-bg-card) !important;
+  background: var(--cf-bg-accent) !important;
+  border-color: var(--cf-border-medium) !important;
   transform: translateY(-1px) !important;
+  box-shadow: var(--cf-shadow) !important;
 }
 
-/* Menu items */
+/* Navigation menu */
 .cf-enhanced #header .second-level-menu,
 .cf-enhanced #header ul.menu {
   display: flex !important;
-  gap: 0.5rem !important;
+  gap: var(--cf-space-xs) !important;
   background: var(--cf-bg-hover) !important;
-  border: 1px solid var(--cf-border) !important;
-  border-radius: 2rem !important;
-  padding: 0.5rem !important;
+  border: 1px solid var(--cf-border-light) !important;
+  border-radius: var(--cf-radius-lg) !important;
+  padding: var(--cf-space-xs) !important;
   list-style: none !important;
-  margin: 0 !important;
+  margin: 0 var(--cf-space-md) !important;
+  height: 40px !important;
+  align-items: center !important;
 }
 
 .cf-enhanced #header .second-level-menu a,
 .cf-enhanced #header ul.menu a {
   color: var(--cf-text-secondary) !important;
   text-decoration: none !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: 0.75rem !important;
+  padding: var(--cf-space-sm) var(--cf-space-md) !important;
+  border-radius: var(--cf-radius) !important;
   transition: all var(--cf-transition) !important;
   font-weight: 500 !important;
+  font-size: 14px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
 }
 
 .cf-enhanced #header .second-level-menu a:hover,
 .cf-enhanced #header ul.menu a:hover {
   color: var(--cf-text-primary) !important;
   background: var(--cf-bg-card) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
 }
 
 /* Right side elements */
 .cf-enhanced #header .lang-chooser,
 .cf-enhanced #header .user-box {
   background: var(--cf-bg-hover) !important;
-  border: 1px solid var(--cf-border) !important;
+  border: 1px solid var(--cf-border-light) !important;
   border-radius: var(--cf-radius) !important;
-  padding: 0.5rem 1rem !important;
+  padding: var(--cf-space-sm) var(--cf-space-md) !important;
   color: var(--cf-text-secondary) !important;
   transition: all var(--cf-transition) !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  font-size: 14px !important;
+  margin-left: auto !important;
 }
 
 .cf-enhanced #header .lang-chooser:hover,
 .cf-enhanced #header .user-box:hover {
-  background: var(--cf-bg-card) !important;
+  background: var(--cf-bg-accent) !important;
+  border-color: var(--cf-border-medium) !important;
   color: var(--cf-text-primary) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
 }
 
-/* === CONTENT AREA === */
-.cf-enhanced #body,
-.cf-enhanced .main {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 2rem !important;
-}
-
-/* === CARDS === */
+/* === CARDS & CONTENT BLOCKS (dev.to article cards inspired) === */
 .cf-enhanced .roundbox,
-.cf-enhanced .bordered {
+.cf-enhanced .bordered,
+.cf-enhanced .datatable {
   background: var(--cf-bg-card) !important;
-  border: 1px solid var(--cf-border) !important;
-  border-radius: var(--cf-radius) !important;
-  box-shadow: var(--cf-shadow) !important;
-  padding: 2rem !important;
-  margin-bottom: 1.5rem !important;
+  border: 1px solid var(--cf-border-light) !important;
+  border-radius: var(--cf-radius-lg) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+  padding: var(--cf-space-xl) !important;
+  margin-bottom: var(--cf-space-lg) !important;
   transition: all var(--cf-transition) !important;
+  overflow: hidden !important;
 }
 
 .cf-enhanced .roundbox:hover,
 .cf-enhanced .bordered:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
+  border-color: var(--cf-border-medium) !important;
+  box-shadow: var(--cf-shadow) !important;
+  transform: translateY(-1px) !important;
 }
 
-/* === TABLES === */
+/* Blog post content styling */
+.cf-enhanced .topic,
+.cf-enhanced .post {
+  background: var(--cf-bg-card) !important;
+  border: 1px solid var(--cf-border-light) !important;
+  border-radius: var(--cf-radius-lg) !important;
+  padding: var(--cf-space-lg) !important;
+  margin-bottom: var(--cf-space-md) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+  transition: all var(--cf-transition) !important;
+}
+
+.cf-enhanced .topic:hover,
+.cf-enhanced .post:hover {
+  border-color: var(--cf-border-medium) !important;
+  box-shadow: var(--cf-shadow) !important;
+}
+
+/* Headers within content */
+.cf-enhanced .roundbox h1,
+.cf-enhanced .roundbox h2,  
+.cf-enhanced .roundbox h3,
+.cf-enhanced .bordered h1,
+.cf-enhanced .bordered h2,
+.cf-enhanced .bordered h3 {
+  color: var(--cf-text-primary) !important;
+  font-weight: 600 !important;
+  margin: 0 0 var(--cf-space-md) 0 !important;
+  line-height: 1.3 !important;
+}
+
+.cf-enhanced .roundbox h1,
+.cf-enhanced .bordered h1 {
+  font-size: 24px !important;
+  margin-bottom: var(--cf-space-lg) !important;
+}
+
+.cf-enhanced .roundbox h2,
+.cf-enhanced .bordered h2 {
+  font-size: 20px !important;
+}
+
+.cf-enhanced .roundbox h3,
+.cf-enhanced .bordered h3 {
+  font-size: 18px !important;
+}
+
+/* === TABLES (dev.to clean table styling) === */
 .cf-enhanced table {
   width: 100% !important;
-  border-collapse: collapse !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
   background: var(--cf-bg-card) !important;
-  border-radius: var(--cf-radius) !important;
+  border: 1px solid var(--cf-border-light) !important;
+  border-radius: var(--cf-radius-lg) !important;
   overflow: hidden !important;
-  box-shadow: var(--cf-shadow) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+  margin: var(--cf-space-md) 0 !important;
 }
 
 .cf-enhanced table th {
   background: var(--cf-bg-surface) !important;
   color: var(--cf-text-primary) !important;
   font-weight: 600 !important;
-  padding: 1rem 1.5rem !important;
+  font-size: 14px !important;
+  padding: var(--cf-space-md) var(--cf-space-lg) !important;
   text-align: left !important;
-  border-bottom: 1px solid var(--cf-border) !important;
+  border-bottom: 1px solid var(--cf-border-medium) !important;
+  letter-spacing: 0.025em !important;
+  text-transform: uppercase !important;
 }
 
 .cf-enhanced table td {
-  padding: 1rem 1.5rem !important;
-  border-bottom: 1px solid var(--cf-border) !important;
+  padding: var(--cf-space-md) var(--cf-space-lg) !important;
+  border-bottom: 1px solid var(--cf-border-light) !important;
   color: var(--cf-text-secondary) !important;
   transition: all var(--cf-transition) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.cf-enhanced table tr:last-child td {
+  border-bottom: none !important;
 }
 
 .cf-enhanced table tr:hover {
   background: var(--cf-bg-hover) !important;
 }
 
-/* === BUTTONS === */
+.cf-enhanced table tr:hover td {
+  color: var(--cf-text-primary) !important;
+}
+
+/* === BUTTONS (dev.to button styling) === */
 .cf-enhanced .button,
 .cf-enhanced button,
 .cf-enhanced input[type="submit"] {
-  background: linear-gradient(135deg, var(--cf-accent) 0%, #10b981 100%) !important;
-  color: #000000 !important;
-  border: none !important;
+  background: var(--cf-accent) !important;
+  color: white !important;
+  border: 1px solid var(--cf-accent) !important;
   border-radius: var(--cf-radius) !important;
-  padding: 0.75rem 1.5rem !important;
+  padding: var(--cf-space-sm) var(--cf-space-lg) !important;
   font-weight: 600 !important;
+  font-size: 14px !important;
   cursor: pointer !important;
   transition: all var(--cf-transition) !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.5rem !important;
+  justify-content: center !important;
+  gap: var(--cf-space-sm) !important;
+  height: 40px !important;
+  min-width: 80px !important;
+  box-shadow: var(--cf-shadow-sm) !important;
 }
 
 .cf-enhanced .button:hover,
 .cf-enhanced button:hover,
 .cf-enhanced input[type="submit"]:hover {
+  background: var(--cf-accent-hover) !important;
+  border-color: var(--cf-accent-hover) !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3) !important;
+  box-shadow: var(--cf-shadow) !important;
 }
 
-/* === FORMS === */
+.cf-enhanced .button:active,
+.cf-enhanced button:active,
+.cf-enhanced input[type="submit"]:active {
+  transform: translateY(0) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+}
+
+/* Secondary button variant */
+.cf-enhanced .button.secondary,
+.cf-enhanced button.secondary {
+  background: var(--cf-bg-card) !important;
+  color: var(--cf-text-primary) !important;
+  border: 1px solid var(--cf-border-medium) !important;
+}
+
+.cf-enhanced .button.secondary:hover,
+.cf-enhanced button.secondary:hover {
+  background: var(--cf-bg-hover) !important;
+  border-color: var(--cf-border-heavy) !important;
+}
+
+/* === FORMS (dev.to form styling) === */
 .cf-enhanced input[type="text"],
 .cf-enhanced input[type="password"],
+.cf-enhanced input[type="email"],
 .cf-enhanced textarea,
 .cf-enhanced select {
   background: var(--cf-bg-card) !important;
-  border: 1px solid var(--cf-border) !important;
+  border: 1px solid var(--cf-border-medium) !important;
   border-radius: var(--cf-radius) !important;
   color: var(--cf-text-primary) !important;
-  padding: 0.75rem 1rem !important;
+  padding: var(--cf-space-sm) var(--cf-space-md) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
   transition: all var(--cf-transition) !important;
   outline: none !important;
+  width: 100% !important;
+  height: 40px !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+}
+
+.cf-enhanced textarea {
+  height: auto !important;
+  min-height: 80px !important;
+  resize: vertical !important;
 }
 
 .cf-enhanced input[type="text"]:focus,
 .cf-enhanced input[type="password"]:focus,
+.cf-enhanced input[type="email"]:focus,
 .cf-enhanced textarea:focus,
 .cf-enhanced select:focus {
   border-color: var(--cf-accent) !important;
-  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(64, 132, 255, 0.1) !important;
+  background: var(--cf-bg-surface) !important;
 }
 
-/* === LINKS === */
+.cf-enhanced input[type="text"]:hover,
+.cf-enhanced input[type="password"]:hover,
+.cf-enhanced input[type="email"]:hover,
+.cf-enhanced textarea:hover,
+.cf-enhanced select:hover {
+  border-color: var(--cf-border-heavy) !important;
+}
+
+/* === LINKS (dev.to link styling) === */
 .cf-enhanced a {
-  color: var(--cf-blue) !important;
+  color: var(--cf-text-accent) !important;
   text-decoration: none !important;
   transition: all var(--cf-transition) !important;
+  border-radius: var(--cf-radius-sm) !important;
 }
 
 .cf-enhanced a:hover {
+  color: var(--cf-accent-hover) !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--cf-accent) !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 2px !important;
+}
+
+.cf-enhanced a:focus {
+  outline: 2px solid var(--cf-accent) !important;
+  outline-offset: 2px !important;
+}
+
+/* Special link treatments */
+.cf-enhanced .post a,
+.cf-enhanced .topic a {
+  font-weight: 500 !important;
+}
+
+.cf-enhanced .user-link,
+.cf-enhanced .username {
+  color: var(--cf-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.cf-enhanced .user-link:hover,
+.cf-enhanced .username:hover {
   color: var(--cf-accent) !important;
 }
 
-/* === CONTROLS === */
+/* === FLOATING CONTROLS (refined positioning) === */
 .cf-control {
   position: fixed !important;
-  right: 1rem !important;
+  right: var(--cf-space-lg) !important;
   width: 48px !important;
   height: 48px !important;
   background: var(--cf-bg-card) !important;
-  border: 1px solid var(--cf-border) !important;
+  border: 1px solid var(--cf-border-medium) !important;
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  z-index: 10000 !important;
-  box-shadow: var(--cf-shadow) !important;
+  z-index: 100 !important;
+  box-shadow: var(--cf-shadow-lg) !important;
   transition: all var(--cf-transition) !important;
-  font-size: 1.25rem !important;
+  font-size: 18px !important;
   color: var(--cf-text-secondary) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .cf-control:hover {
-  background: var(--cf-bg-hover) !important;
-  transform: scale(1.1) !important;
+  background: var(--cf-bg-surface) !important;
+  border-color: var(--cf-border-heavy) !important;
+  transform: scale(1.05) !important;
   color: var(--cf-text-primary) !important;
+  box-shadow: var(--cf-shadow-lg) !important;
 }
 
 .cf-control.active {
   background: var(--cf-accent) !important;
-  color: #000000 !important;
+  border-color: var(--cf-accent) !important;
+  color: white !important;
+  box-shadow: 0 8px 25px rgba(64, 132, 255, 0.3) !important;
 }
 
 .cf-toggle {
-  top: 50% !important;
-  transform: translateY(-50%) !important;
+  bottom: 120px !important;
 }
 
 .cf-theme {
-  top: calc(50% + 60px) !important;
-  transform: translateY(-50%) !important;
+  bottom: 60px !important;
 }
 
-/* === STATUS === */
+/* === STATUS INDICATOR === */
 .cf-status {
   position: fixed !important;
-  bottom: 1.5rem !important;
-  right: 1.5rem !important;
-  background: var(--cf-accent) !important;
-  color: #000000 !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: 2rem !important;
+  bottom: var(--cf-space-lg) !important;
+  right: var(--cf-space-lg) !important;
+  background: var(--cf-success) !important;
+  color: white !important;
+  padding: var(--cf-space-sm) var(--cf-space-lg) !important;
+  border-radius: var(--cf-radius-lg) !important;
   font-weight: 600 !important;
-  font-size: 0.875rem !important;
-  z-index: 10000 !important;
-  box-shadow: var(--cf-shadow) !important;
-  animation: slideIn 0.5s ease-out !important;
+  font-size: 14px !important;
+  z-index: 1000 !important;
+  box-shadow: var(--cf-shadow-lg) !important;
+  animation: cfSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
-@keyframes slideIn {
+@keyframes cfSlideIn {
   from {
-    transform: translateX(100px);
+    transform: translateX(100px) translateY(20px);
     opacity: 0;
+    scale: 0.8;
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
     opacity: 1;
+    scale: 1;
   }
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
+/* === RESPONSIVE DESIGN (mobile-first approach like dev.to) === */
+@media (max-width: 640px) {
   .cf-enhanced #header {
-    padding: 0 1rem !important;
+    padding: 0 var(--cf-space-md) !important;
     height: 56px !important;
+  }
+  
+  .cf-enhanced #header .second-level-menu,
+  .cf-enhanced #header ul.menu {
+    display: none !important;
   }
   
   .cf-enhanced #body,
   .cf-enhanced .main {
-    padding: 1rem !important;
+    padding: var(--cf-space-md) !important;
+    gap: var(--cf-space-md) !important;
+  }
+  
+  .cf-enhanced .roundbox,
+  .cf-enhanced .bordered {
+    padding: var(--cf-space-lg) !important;
+    margin-bottom: var(--cf-space-md) !important;
   }
   
   .cf-control {
-    right: 0.75rem !important;
+    right: var(--cf-space-md) !important;
     width: 44px !important;
     height: 44px !important;
+    font-size: 16px !important;
+  }
+  
+  .cf-status {
+    right: var(--cf-space-md) !important;
+    bottom: var(--cf-space-md) !important;
+    font-size: 13px !important;
+    padding: var(--cf-space-xs) var(--cf-space-md) !important;
   }
 }
 
-/* === SCROLLBAR === */
+@media (max-width: 768px) {
+  .cf-enhanced table {
+    font-size: 13px !important;
+  }
+  
+  .cf-enhanced table th,
+  .cf-enhanced table td {
+    padding: var(--cf-space-sm) var(--cf-space-md) !important;
+  }
+}
+
+/* === ENHANCED SCROLLBAR (dev.to style) === */
 .cf-enhanced ::-webkit-scrollbar {
-  width: 8px !important;
+  width: 6px !important;
+  height: 6px !important;
 }
 
 .cf-enhanced ::-webkit-scrollbar-track {
   background: var(--cf-bg-surface) !important;
+  border-radius: 3px !important;
 }
 
 .cf-enhanced ::-webkit-scrollbar-thumb {
-  background: var(--cf-accent) !important;
-  border-radius: 4px !important;
+  background: var(--cf-border-medium) !important;
+  border-radius: 3px !important;
+  transition: background var(--cf-transition) !important;
 }
 
-/* === SELECTION === */
+.cf-enhanced ::-webkit-scrollbar-thumb:hover {
+  background: var(--cf-accent) !important;
+}
+
+/* === TEXT SELECTION === */
 .cf-enhanced ::selection {
-  background: rgba(74, 222, 128, 0.2) !important;
+  background: rgba(64, 132, 255, 0.2) !important;
   color: var(--cf-text-primary) !important;
+}
+
+.cf-enhanced ::-moz-selection {
+  background: rgba(64, 132, 255, 0.2) !important;
+  color: var(--cf-text-primary) !important;
+}
+
+/* === CODE BLOCKS (if any) === */
+.cf-enhanced pre,
+.cf-enhanced code {
+  background: var(--cf-bg-surface) !important;
+  border: 1px solid var(--cf-border-light) !important;
+  border-radius: var(--cf-radius) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.cf-enhanced pre {
+  padding: var(--cf-space-lg) !important;
+  overflow-x: auto !important;
+  margin: var(--cf-space-md) 0 !important;
+}
+
+.cf-enhanced code {
+  padding: var(--cf-space-xs) var(--cf-space-sm) !important;
+  color: var(--cf-accent) !important;
+  font-weight: 500 !important;
+}
+
+/* === FOCUS MANAGEMENT === */
+.cf-enhanced *:focus {
+  outline: 2px solid var(--cf-accent) !important;
+  outline-offset: 2px !important;
+}
+
+.cf-enhanced button:focus,
+.cf-enhanced .button:focus {
+  outline-offset: 4px !important;
 }

@@ -1,27 +1,34 @@
-# ⚡ CF Enhancer v3.0 - Minimal Clean
+# ⚡ CF Enhancer v4.0 - Dev.to Inspired
 
-A **beautiful, minimal, and clean** Chrome extension that transforms Codeforces with a modern design system. **Non-destructive** - preserves all original functionality while adding stunning visual enhancements.
+A **beautiful, modern, and accessible** Chrome extension that transforms Codeforces with a dev.to-inspired design system. **Non-destructive** - preserves all original functionality while adding stunning visual enhancements.
 
 ## ✨ Key Features
 
-### 🎨 **Minimal Clean Design**
-- **Full-width navigation bar** with gradient background
-- **Left-aligned logo** with animated lightning bolt
-- **Clean, minimal aesthetics** inspired by modern dashboards
-- **Non-destructive approach** - preserves original structure
-- **Professional typography** with Inter font
+### 🎨 **Dev.to Inspired Design**
+- **Clean spacing system** (4px, 8px, 16px, 24px, 32px) for consistent layout
+- **Modern navigation** with refined typography and better accessibility
+- **Card-based content** with subtle shadows and borders
+- **Professional color palette** with carefully chosen contrast ratios
+- **Enhanced typography** with Inter font and improved line heights
 
-### 🌓 **Theme System**
-- **Dark theme** (default) with carefully crafted colors
-- **Light theme** for daytime coding
-- **Instant switching** with popup toggles or keyboard shortcuts
+### 🌓 **Refined Theme System**
+- **Dark theme** with dev.to night mode inspired colors
+- **Light theme** with clean, minimal aesthetics
+- **Smooth transitions** and improved hover states
+- **Better color contrast** for accessibility
 - **Persistent settings** across sessions
 
-### 🔧 **Smart Controls**
-- **Floating toggle buttons** for easy access
-- **Popup interface** with beautiful switches
+### 🔧 **Enhanced Controls**
+- **Floating controls** with improved positioning and styling
+- **Modern popup interface** with dev.to inspired switches
 - **Keyboard shortcuts** (Alt+E, Alt+T)
-- **Real-time state management**
+- **Better visual feedback** and states
+
+### 📱 **Mobile-First Responsive**
+- **Progressive enhancement** from mobile to desktop
+- **Adaptive spacing** and component sizing
+- **Better mobile navigation** behavior
+- **Touch-friendly controls**
 
 ## 🚀 Installation
 

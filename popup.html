@@ -12,26 +12,28 @@
         }
         
         body {
-            width: 320px;
-            padding: 20px;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            width: 340px;
+            padding: 24px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0f0f23;
+            color: #f4f4f5;
             font-size: 14px;
+            line-height: 1.6;
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
         }
         
         .header {
             text-align: center;
             margin-bottom: 24px;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 8px;
+            color: #f4f4f5;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -40,32 +42,43 @@
         
         .logo::before {
             content: '⚡';
-            filter: drop-shadow(0 0 8px #4ade80);
+            font-size: 18px;
+            filter: drop-shadow(0 0 8px #4084ff);
+        }
+        
+        .tagline {
+            font-size: 13px;
+            color: #a1a1aa;
+            font-weight: 500;
+            margin-bottom: 4px;
         }
         
         .version {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            color: #71717a;
+            letter-spacing: 0.025em;
         }
         
         .controls {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
             margin-bottom: 24px;
         }
         
         .control {
-            background: #1a1a1a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #161625;
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
-            padding: 16px;
-            transition: all 0.3s ease;
+            padding: 20px;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
         }
         
         .control:hover {
-            background: #2a2a2a;
-            border-color: #4ade80;
+            background: #1e1e2e;
+            border-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
         }
         
         .control-header {
@@ -77,67 +90,79 @@
         
         .control-title {
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
+            color: #f4f4f5;
         }
         
         .toggle {
-            width: 48px;
+            width: 44px;
             height: 24px;
-            background: #333;
+            background: #374151;
             border-radius: 12px;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.3);
         }
         
         .toggle.active {
-            background: #4ade80;
+            background: #4084ff;
+            border-color: #4084ff;
+            box-shadow: 0 0 0 2px rgba(64, 132, 255, 0.2);
         }
         
         .toggle::after {
             content: '';
             position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 18px;
-            height: 18px;
+            top: 1px;
+            left: 1px;
+            width: 20px;
+            height: 20px;
             background: white;
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
         }
         
         .toggle.active::after {
-            transform: translateX(24px);
+            transform: translateX(20px);
         }
         
         .control-desc {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.4;
+            font-size: 13px;
+            color: #a1a1aa;
+            line-height: 1.5;
         }
         
         .status {
-            background: linear-gradient(135deg, #4ade80 0%, #10b981 100%);
-            color: #000;
+            background: #10b981;
+            color: white;
             padding: 12px 16px;
             border-radius: 8px;
             text-align: center;
             font-weight: 600;
             font-size: 13px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
         }
         
         .features {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
+            color: #a1a1aa;
+            line-height: 1.6;
+            background: #161625;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 16px;
         }
         
         .features h4 {
-            color: #ffffff;
+            color: #f4f4f5;
             margin-bottom: 8px;
             font-size: 13px;
+            font-weight: 600;
         }
         
         .features ul {
@@ -146,7 +171,7 @@
         }
         
         .features li {
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             padding-left: 16px;
             position: relative;
         }
@@ -155,23 +180,42 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: #4ade80;
+            color: #4084ff;
+            font-weight: 600;
         }
         
         .shortcuts {
-            background: #1a1a1a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #161625;
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 8px;
-            padding: 12px;
+            padding: 16px;
             margin-top: 16px;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            color: #a1a1aa;
         }
         
         .shortcuts h4 {
-            color: #ffffff;
+            color: #f4f4f5;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 6px;
-            font-size: 12px;
+        }
+        
+        .shortcut-key {
+            background: #374151;
+            color: #f4f4f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .shortcut {
@@ -183,16 +227,13 @@
         .key {
             background: #333;
             padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="logo">CF Enhancer</div>
-        <div class="version">v3.0 - Minimal Clean</div>
+        <div class="tagline">Modern UI for Codeforces</div>
+        <div class="version">v4.0 - Dev.to Inspired</div>
     </div>
     
     <div id="status" class="status">✨ Enhancement Active</div>
@@ -203,37 +244,40 @@
                 <span class="control-title">UI Enhancement</span>
                 <div id="enhancementToggle" class="toggle active"></div>
             </div>
-            <div class="control-desc">Beautiful, minimal design for Codeforces</div>
+            <div class="control-desc">Clean, dev.to-inspired design for Codeforces</div>
         </div>
         
         <div class="control">
             <div class="control-header">
-                <span class="control-title">Dark Theme</span>
+                <span class="control-title">Theme Mode</span>
                 <div id="themeToggle" class="toggle active"></div>
             </div>
-            <div class="control-desc">Switch between dark and light themes</div>
+            <div class="control-desc">Toggle between dark and light themes</div>
         </div>
     </div>
     
     <div class="features">
-        <h4>Features:</h4>
+        <h4>What's New:</h4>
         <ul>
-            <li>Full-width navigation bar</li>
-            <li>Minimal, clean design</li>
-            <li>Smooth animations</li>
-            <li>Responsive layout</li>
-            <li>Preserved functionality</li>
+            <li>Dev.to inspired spacing & layout</li>
+            <li>Refined typography & colors</li>
+            <li>Enhanced card design</li>
+            <li>Better mobile responsiveness</li>
+            <li>Improved accessibility</li>
+            <li>Non-destructive enhancements</li>
         </ul>
     </div>
     
     <div class="shortcuts">
         <h4>Keyboard Shortcuts:</h4>
-        <div class="shortcut">
+        <div class="shortcut-item">
             <span>Toggle Enhancement</span>
-            <span class="key">Alt+E</span>
+            <span class="shortcut-key">Alt+E</span>
         </div>
-        <div class="shortcut">
+        <div class="shortcut-item">
             <span>Toggle Theme</span>
+            <span class="shortcut-key">Alt+T</span>
+        </div>
             <span class="key">Alt+T</span>
         </div>
     </div>
