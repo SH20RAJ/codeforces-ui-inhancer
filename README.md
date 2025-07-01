@@ -1,21 +1,91 @@
-# ⚡ Beautiful Codeforces UI Enhancer - Enhanced Edition
+# ⚡ CF Enhancer v3.0 - Minimal Clean
 
-Transform your Codeforces experience with this **stunning, modern, and absolutely beautiful** Chrome extension! Say goodbye to the outdated interface and hello to a premium, professional-grade UI that makes competitive programming a visual delight.
+A **beautiful, minimal, and clean** Chrome extension that transforms Codeforces with a modern design system. **Non-destructive** - preserves all original functionality while adding stunning visual enhancements.
 
-## ✨ Latest Features (Enhanced)
+## ✨ Key Features
 
-### 🎨 **Full-Width Navigation Bar**
-- **Beautiful dark gradient** navigation (full-width design)
-- **Left-aligned logo** with animated lightning bolt icon
-- **Enhanced search bar** with glassmorphism effects
-- **Notification badge** with pulsing animations
-- **Theme toggle button** with smooth rotation effects
-- **Professional spacing** and modern typography
+### 🎨 **Minimal Clean Design**
+- **Full-width navigation bar** with gradient background
+- **Left-aligned logo** with animated lightning bolt
+- **Clean, minimal aesthetics** inspired by modern dashboards
+- **Non-destructive approach** - preserves original structure
+- **Professional typography** with Inter font
 
-### 🔍 **Enhanced Interactive Elements**
-- **Search functionality** integrated into navigation
-- **Quick actions dropdown** with smooth animations  
-- **Mobile-responsive menu** with slide transitions
+### 🌓 **Theme System**
+- **Dark theme** (default) with carefully crafted colors
+- **Light theme** for daytime coding
+- **Instant switching** with popup toggles or keyboard shortcuts
+- **Persistent settings** across sessions
+
+### 🔧 **Smart Controls**
+- **Floating toggle buttons** for easy access
+- **Popup interface** with beautiful switches
+- **Keyboard shortcuts** (Alt+E, Alt+T)
+- **Real-time state management**
+
+## 🚀 Installation
+
+1. **Download/clone** this repository
+2. **Open Chrome** → `chrome://extensions/`
+3. **Enable Developer mode** (top right toggle)
+4. **Click "Load unpacked"** → select extension folder
+5. **Visit Codeforces** → see the enhanced UI!
+
+## 🎮 Usage
+
+### Toggle Controls
+- **Alt+E** - Toggle enhancement on/off
+- **Alt+T** - Switch between dark/light themes
+- **Popup** - Click extension icon for visual controls
+- **Floating buttons** - Right side of screen
+
+### Features
+- ✅ Full-width dark navigation
+- ✅ Minimal card designs
+- ✅ Enhanced tables and forms
+- ✅ Smooth animations
+- ✅ Responsive design
+- ✅ Custom scrollbars
+- ✅ Beautiful buttons
+
+## 🎨 Design System
+
+Based on the attached dashboard image with:
+- **Dark palette**: #0a0a0a, #1a1a1a, #2a2a2a
+- **Accent colors**: Green (#4ade80), Blue (#60a5fa), Orange (#fb923c)
+- **Modern spacing**: 0.75rem border radius, clean shadows
+- **Typography**: Inter font family for professionalism
+
+## � Mobile Responsive
+
+- **Adaptive navigation** for mobile devices
+- **Touch-friendly controls** (44px minimum)
+- **Optimized spacing** for smaller screens
+- **Preserved functionality** on all devices
+
+## 🛠 Technical Details
+
+- **Non-destructive CSS** - uses `.cf-enhanced` class scope
+- **Modular architecture** with organized file structure
+- **Vanilla JavaScript** - no dependencies
+- **Chrome Extension v3** manifest
+- **Local storage** for persistent settings
+
+## 🎯 GitHub Repository
+
+Visit: **https://github.com/SH20RAJ/codeforces-ui-inhancer**
+
+## 📄 Version History
+
+- **v3.0** - Complete rewrite with minimal design system
+- **v2.x** - Enhanced features and modular approach  
+- **v1.x** - Initial LeetCode-style implementation
+
+---
+
+**Made with ❤️ for competitive programmers**
+
+Transform your Codeforces experience with clean, minimal design!
 - **Active state indicators** for current navigation items
 - **Hover effects** with shimmer animations
 - **Improved table design** with hover effects and better readability

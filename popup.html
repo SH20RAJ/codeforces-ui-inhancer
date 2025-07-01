@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codeforces UI Enhancer</title>
+    <title>CF Enhancer</title>
     <style>
         * {
             margin: 0;
@@ -12,226 +12,277 @@
         }
         
         body {
-            width: 280px;
+            width: 320px;
             padding: 20px;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #ffffff;
-            color: #262626;
+            background: #0a0a0a;
+            color: #ffffff;
             font-size: 14px;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #ffffff;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         
         .logo::before {
             content: '⚡';
-            margin-right: 8px;
-            filter: drop-shadow(0 0 8px rgba(255, 161, 22, 0.5));
-        }
-        
-        .subtitle {
-            color: #595959;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .status {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .features {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .features li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-            color: #262626;
-        }
-        
-        .features li::before {
-            content: '✓';
-            background: linear-gradient(135deg, #ffa116 0%, #f59e0b 100%);
-            color: white;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            font-size: 10px;
-            font-weight: 700;
-        }
-        
-        .new-features {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-        }
-        
-        .new-features h4 {
-            color: #1a1a1a;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .new-features h4::before {
-            content: '✨';
-            margin-right: 6px;
-        }
-        
-        .new-features ul {
-            list-style: none;
-            font-size: 12px;
-            color: #595959;
-        }
-        
-        .new-features li {
-            padding: 2px 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .new-features li::before {
-            content: '→';
-            margin-right: 8px;
-            color: #ffa116;
-            font-weight: 600;
+            filter: drop-shadow(0 0 8px #4ade80);
         }
         
         .version {
             font-size: 12px;
-            color: #8c8c8c;
+            color: rgba(255, 255, 255, 0.6);
         }
         
-        .status-card {
-            background: #f7f8fa;
-            border-radius: 8px;
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .control {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             padding: 16px;
-            border: 1px solid #e8e8e8;
-            margin-bottom: 16px;
+            transition: all 0.3s ease;
         }
         
-        .status-title {
-            font-size: 14px;
-            font-weight: 500;
-            color: #262626;
+        .control:hover {
+            background: #2a2a2a;
+            border-color: #4ade80;
+        }
+        
+        .control-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 8px;
         }
         
-        .status-text {
-            font-size: 13px;
-            color: #595959;
+        .control-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .toggle {
+            width: 48px;
+            height: 24px;
+            background: #333;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .toggle.active {
+            background: #4ade80;
+        }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle.active::after {
+            transform: translateX(24px);
+        }
+        
+        .control-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
             line-height: 1.4;
         }
         
-        .features {
-            margin-top: 16px;
-        }
-        
-        .features h3 {
-            font-size: 13px;
-            font-weight: 500;
-            color: #262626;
-            margin-bottom: 12px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-size: 12px;
-            color: #595959;
-        }
-        
-        .feature-check {
-            color: #00b894;
-            font-weight: 600;
-        }
-        
-        .info {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #e8e8e8;
+        .status {
+            background: linear-gradient(135deg, #4ade80 0%, #10b981 100%);
+            color: #000;
+            padding: 12px 16px;
+            border-radius: 8px;
             text-align: center;
-            font-size: 11px;
-            color: #8c8c8c;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 16px;
         }
         
-        .reload-hint {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 12px;
-            margin-top: 12px;
+        .features {
             font-size: 12px;
-            color: #856404;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+        
+        .features h4 {
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+        }
+        
+        .shortcuts {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 16px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .shortcuts h4 {
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+        
+        .shortcut {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        
+        .key {
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 10px;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo">Codeforces UI</div>
-        <div class="subtitle">LeetCode Style Enhanced</div>
+        <div class="logo">CF Enhancer</div>
+        <div class="version">v3.0 - Minimal Clean</div>
     </div>
     
-    <div class="status">✨ Enhancement Active</div>
+    <div id="status" class="status">✨ Enhancement Active</div>
     
-    <div class="new-features">
-        <h4>Latest Features</h4>
+    <div class="controls">
+        <div class="control">
+            <div class="control-header">
+                <span class="control-title">UI Enhancement</span>
+                <div id="enhancementToggle" class="toggle active"></div>
+            </div>
+            <div class="control-desc">Beautiful, minimal design for Codeforces</div>
+        </div>
+        
+        <div class="control">
+            <div class="control-header">
+                <span class="control-title">Dark Theme</span>
+                <div id="themeToggle" class="toggle active"></div>
+            </div>
+            <div class="control-desc">Switch between dark and light themes</div>
+        </div>
+    </div>
+    
+    <div class="features">
+        <h4>Features:</h4>
         <ul>
-            <li>Enhanced search bar in navigation</li>
-            <li>Notification badge with animations</li>
-            <li>Theme toggle button</li>
-            <li>Improved breadcrumb navigation</li>
-            <li>Pulsing logo with better branding</li>
+            <li>Full-width navigation bar</li>
+            <li>Minimal, clean design</li>
+            <li>Smooth animations</li>
+            <li>Responsive layout</li>
+            <li>Preserved functionality</li>
         </ul>
     </div>
     
-    <ul class="features">
-        <li>Full-width dark navigation bar</li>
-        <li>Beautiful gradient backgrounds</li>
-        <li>Professional Inter font family</li>
-        <li>Smooth hover animations</li>
-        <li>Enhanced tables and buttons</li>
-        <li>LeetCode-inspired color scheme</li>
-        <li>Responsive mobile design</li>
-        <li>Custom scrollbar styling</li>
-    </ul>
-    
-    <div class="reload-hint">
-        💡 Refresh codeforces.com to see the latest enhancements
+    <div class="shortcuts">
+        <h4>Keyboard Shortcuts:</h4>
+        <div class="shortcut">
+            <span>Toggle Enhancement</span>
+            <span class="key">Alt+E</span>
+        </div>
+        <div class="shortcut">
+            <span>Toggle Theme</span>
+            <span class="key">Alt+T</span>
+        </div>
     </div>
-    
-    <div class="info">
-        Made with ❤️ for competitive programmers
-    </div>
+
+    <script>
+        let enhancementToggle = document.getElementById('enhancementToggle');
+        let themeToggle = document.getElementById('themeToggle');
+        let status = document.getElementById('status');
+
+        // Get current tab and send message
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {action: 'getStatus'}, function(response) {
+                if (response) {
+                    updateUI(response);
+                }
+            });
+        });
+
+        // Update UI based on current state
+        function updateUI(state) {
+            enhancementToggle.classList.toggle('active', state.enabled);
+            themeToggle.classList.toggle('active', state.theme === 'dark');
+            status.textContent = state.enabled ? '✨ Enhancement Active' : '💤 Enhancement Disabled';
+            status.style.background = state.enabled ? 
+                'linear-gradient(135deg, #4ade80 0%, #10b981 100%)' : 
+                'linear-gradient(135deg, #666 0%, #444 100%)';
+        }
+
+        // Enhancement toggle
+        enhancementToggle.addEventListener('click', function() {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {action: 'toggle'}, function(response) {
+                    if (response) {
+                        updateUI(response);
+                    }
+                });
+            });
+        });
+
+        // Theme toggle
+        themeToggle.addEventListener('click', function() {
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {action: 'toggleTheme'}, function(response) {
+                    if (response) {
+                        updateUI(response);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
