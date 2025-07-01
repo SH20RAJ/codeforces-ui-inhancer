@@ -1,23 +1,23 @@
-# ⚡ Beautiful Codeforces UI Enhancer
+# ⚡ Beautiful Codeforces UI Enhancer - Enhanced Edition
 
 Transform your Codeforces experience with this **stunning, modern, and absolutely beautiful** Chrome extension! Say goodbye to the outdated interface and hello to a premium, professional-grade UI that makes competitive programming a visual delight.
 
-## ✨ Features
+## ✨ Latest Features (Enhanced)
 
-### 🎨 **Breathtaking Visual Design**
-- **Modern Material Design** inspired interface with glass morphism effects
-- **Stunning gradients** and smooth animations throughout
-- **Premium typography** with Inter and JetBrains Mono fonts
-- **Beautiful shadows** and elegant spacing for perfect visual hierarchy
+### 🎨 **Full-Width Navigation Bar**
+- **Beautiful dark gradient** navigation (full-width design)
+- **Left-aligned logo** with animated lightning bolt icon
+- **Enhanced search bar** with glassmorphism effects
+- **Notification badge** with pulsing animations
+- **Theme toggle button** with smooth rotation effects
+- **Professional spacing** and modern typography
 
-### 🌙 **Advanced Theme System**
-- **Dark Mode** with carefully crafted color palettes
-- **Light Mode** with clean, crisp aesthetics
-- **Instant theme switching** with Alt+T shortcut
-- **System-wide consistency** across all Codeforces pages
-
-### 🚀 **Enhanced User Experience**
-- **Smooth animations** and micro-interactions
+### 🔍 **Enhanced Interactive Elements**
+- **Search functionality** integrated into navigation
+- **Quick actions dropdown** with smooth animations  
+- **Mobile-responsive menu** with slide transitions
+- **Active state indicators** for current navigation items
+- **Hover effects** with shimmer animations
 - **Improved table design** with hover effects and better readability
 - **Beautiful buttons** with gradient backgrounds and shine effects
 - **Enhanced navigation** with modern styling and better organization
@@ -206,7 +206,7 @@ We welcome contributions to make Codeforces even more beautiful!
 
 Having issues or suggestions? We're here to help!
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/your-repo/issues)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/sh20raj/issues)
 - **Email**: your-email@example.com
 - **Discord**: Join our community (link coming soon)
 
